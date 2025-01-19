@@ -1,0 +1,16 @@
+분야: 암호학, 웹해킹
+
+/storage 경로 접속시 세션키 나열
+세션키를 얻어서 admin으로 로그인시
+base32 커스텀 암호로 암호화된 플래그를 출력
+커스텀키값 힌트 abcdefghijklmnopqrstuvwxyzABCDEF 같이놓기
+base32 커스텀키로 복호화시 flag출력
+문제 제목을 base로 하면 될듯
+
+php
+로그인시 패스워드를 md5(value, true)로 암호화시 binary 취약점 발생
+select * from user where id=입력값 and password=입력값
+일때, password 입력값에 9235566을 입력할경우
+바이너리로 (바이너리값)'='(바이너리값) 로 반환되게 되는데
+mysql에서 숫자로 바꾸지못하는 문자열은 false가 되어 false=false 즉 true값이된다
+md5 true를 검색하면 바로 나와서 힌트안주고 서치문제로 내도될듯
