@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>입력창</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>입력창</h1>
+    <p>어딘가 이상한 입력창</p>
+
+    <form action="/vuln" method="GET">
+        <label for="input">문자열 입력:</label>
+        <input type="text" id="input" name="param" required>
+        <button type="submit">입력</button>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF Challenge</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>CSRF Challenge</h1>
+    <p>{{ text }}</p>
+
+    <div>
+        <a href="/login">로그인 페이지</a>
+    </div>
+</body>
+
+</html>

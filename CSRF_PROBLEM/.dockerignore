@@ -1,0 +1,9 @@
+# 환경 변수 파일 (보안)
+.env
+
+# Docker 관련 빌드 파일 제외
+Dockerfile
+*.dockerignore
+
+#특정 파일 제외하고 싶은 경우 넣기
+
