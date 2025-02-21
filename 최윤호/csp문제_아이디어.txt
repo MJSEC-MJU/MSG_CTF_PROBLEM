@@ -1,0 +1,15 @@
+@app.after_request
+def add_header(response):
+    const nonce
+    response.headers[
+        "Content-Security-Policy"
+    ] = f"default-src 'self'; img-src 'self' 'nonce-{nonce}' https://dreamhack.io; style-src 'self' 'unsafe-inline'; script-src 'self' 'nonce-{nonce}';base-uri 'none'  "
+    nonce = "고유한값"
+    return response
+
+내가원하게 해주고싶은것은 일단 대부분의 태그들을 none으로 닫아
+근데여기서 nonce값을 고유하게 만들고 이를 버프슈트를 이용해 알아낼수 있게 할거임.
+요청값에 nonce를 계속 주도록 설정(물론 코드에는 app.py에는 없고 flag처럼 숨겨짐)
+
++"script"를 filtering해서 img 태그를 쓰도록 유도
+
