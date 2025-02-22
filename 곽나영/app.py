@@ -10,6 +10,9 @@ DB_PORT = int(os.environ["DB_PORT"])
 DB_USER = os.environ["DB_USER"]
 DB_PASSWORD = os.environ["DB_PASSWORD"]
 DB_NAME = os.environ["DB_NAME"]
+TABLE_NAME = os.environ.get("TABLE_NAME")
+USER_COLUMN = os.environ.get("USER_COLUMN")
+PASSWORD_COLUMN = os.environ.get("PASSWORD_COLUMN")
 
 
 def get_db_connection():
@@ -24,12 +27,11 @@ def get_db_connection():
     )
 
 
-# 기본 페이지 라우터
 @app.route("/", methods=["GET"])
 def index():
     if "logged_in" in session:
-        uid = session["uid"]
-        if uid == "admin":
+        id = session["USER_COLUMN"]
+        if id == "admin":
             return render_template("index.html", flag=True)
         else:
             return render_template(
@@ -41,25 +43,22 @@ def index():
         )
 
 
-# 로그인 처리 라우터
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        uid = request.form.get("uid")
+        id = request.form.get("id")
         password = request.form.get("password")
-        if uid and password:
+        if id and password:
             try:
                 conn = get_db_connection()
                 cur = conn.cursor()
-
-                query = f"SELECT * FROM test_table WHERE uid='{uid}' AND upassword='{password}';"
-                cur.execute(query)
+                cur.execute(
+                    f"SELECT * FROM {TABLE_NAME} WHERE {USER_COLUMN}='{id}' AND {PASSWORD_COLUMN}='{password}';"
+                )
                 user = cur.fetchone()
-                conn.close()
                 if user:
                     session["logged_in"] = True
-
-                    session["uid"] = user["uid"]
+                    session["USER_COLUMN"] = id
                     return redirect(url_for("index"))
                 else:
                     return render_template(
@@ -79,7 +78,7 @@ def login():
 @app.route("/logout", methods=["GET"])
 def logout():
     session.pop("logged_in", None)
-    session.pop("uid", None)
+    session.pop("USER_COLUMN", None)
     return redirect(url_for("index"))
 
 

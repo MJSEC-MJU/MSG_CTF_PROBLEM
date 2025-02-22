@@ -29,6 +29,9 @@ services:
       - DB_PASSWORD=kny12202423!
       - DB_NAME=testdb
       - DB_PORT=3306
+      - TABLE_NAME=test_table
+      - USER_COLUMN=uid
+      - PASSWORD_COLUMN=upassword
 
 volumes:
   mysql-data:

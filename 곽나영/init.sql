@@ -11,7 +11,7 @@ CREATE TABLE test_table (
     body TEXT
 );
 
--- 비밀번호를 랜덤으로?
+-- 수정해야 할 사항: 비밀번호 랜덤으로 수정해야 함
 INSERT INTO test_table (uid, upassword, name, body) VALUES
     ('admin', 'aDk#9V2f3mP9', 'nayoung', 'This is a body for admin'),
     ('guest', 'guest', 'guest', 'Body text for guest, user guest'),
