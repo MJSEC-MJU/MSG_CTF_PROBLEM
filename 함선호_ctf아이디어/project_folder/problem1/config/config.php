@@ -1,7 +1,5 @@
-<?php
-$db_username="admin";
-$db_password="@prefer1228@";
-$db_name="login";
-$db_host="mysql";
-$port=3306;
-?>
+$db_username = getenv('DB_USERNAME');
+$db_password = getenv('DB_PASSWORD');
+$db_name     = getenv('DB_NAME');
+$db_host     = getenv('DB_HOST');
+$port        = getenv('PORT');
