@@ -14,7 +14,7 @@
 
 2. 프로젝트 클론:
     ```sh
-    git clone https://github.com/MJSEC-MJU/MJSEC_CTF_CHALLENGE.git
+    git clone https://github.com/MJSEC-MJU/MSG_CTF_PROBLEM.git
     ```
 
 ## 가상환경 설정
