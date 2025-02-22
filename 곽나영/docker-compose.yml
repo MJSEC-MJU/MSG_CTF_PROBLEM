@@ -1,3 +1,4 @@
+name: ny0
 services:
   db:
     image: mysql:8.0
