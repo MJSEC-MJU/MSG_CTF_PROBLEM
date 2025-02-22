@@ -11,9 +11,9 @@ CREATE TABLE test_table (
     body TEXT
 );
 
--- 수정해야 할 사항: 비밀번호 랜덤으로 수정해야 함
+
 INSERT INTO test_table (uid, upassword, name, body) VALUES
-    ('admin', 'aDk#9V2f3mP9', 'nayoung', 'This is a body for admin'),
+    ('admin', SUBSTRING(MD5(RAND()), 1, 24), 'nayoung', 'This is a body for admin'),
     ('guest', 'guest', 'guest', 'Body text for guest, user guest'),
     ('jiyoon', 'y8R^Nwz5L&1X', 'jiyoonjung', 'This is a body for jiyoon'),
     ('jongyoon', 'U9oK7c1Tx@V2', 'jongyoonlee', 'This is a body for jongyoon'),
@@ -39,3 +39,4 @@ INSERT INTO secret_table (code, value) VALUES
     ('A123', 123.45),
     ('B456', 678.90),
     ('C789', 234.56);
+
