@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+  </head>
+  <body>
+    <h1>Welcome to the homepage!</h1>
+
+    {% if message %}
+    <p></p>
+    {% endif %} {% if login_button %}
+    <a href="{{ url_for('login') }}"><button>로그인 하러 가기</button></a>
+    {% endif %} {% if flag %}
+    <p>
+      Flag:
+      DH{햄부기햄북햄북어햄북스딱스함부르크햄부가우가햄비기햄부거햄부가티햄부기온앤온을차려오거라}
+    </p>
+    {% elif flag is not none %}
+    <p>{{ message }}</p>
+    {% endif %} {% if 'logged_in' in session %}
+    <a href="{{ url_for('logout') }}"><button>로그아웃</button></a>
+    {% endif %}
+  </body>
+</html>
