@@ -35,7 +35,7 @@ services:
       - './problem1:/var/www/html/problem1'
       - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
       - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.1/cli/conf.d/99-overrides.ini'
-      - '/phpdocker/php-fpm/www.conf:/etc/php/8.1/fpm/pool.d/www.conf'
+      - './phpdocker/php-fpm/www.conf:/etc/php/8.1/fpm/pool.d/www.conf'
     environment:
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
