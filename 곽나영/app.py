@@ -74,7 +74,6 @@ def login():
         return render_template("login.html")
 
 
-# 로그아웃 라우터
 @app.route("/logout", methods=["GET"])
 def logout():
     session.pop("logged_in", None)
