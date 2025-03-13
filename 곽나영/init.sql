@@ -1,5 +1,5 @@
 
-DROP DATABASE IF EXISTS testdb;
+DROP DATABASE testdb;
 CREATE DATABASE testdb;
 USE testdb;
 

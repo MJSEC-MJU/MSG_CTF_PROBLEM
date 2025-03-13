@@ -8,6 +8,8 @@ services:
     working_dir: /var/www/html/problem1
     volumes:
       - './problem1:/var/www/html/problem1'
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -43,4 +45,6 @@ services:
       - PORT=${PORT}
     depends_on:
       - mysql
+volumes:
+  db_data:
 
