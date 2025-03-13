@@ -18,7 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
-# SECRET_KEY를 환경변수에서 읽어오고, 없으면 기본값 사용 (개발용)
 SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     "django-insecure-default-secret-key-for-development"
