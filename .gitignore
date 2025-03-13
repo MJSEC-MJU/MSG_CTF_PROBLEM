@@ -2,7 +2,7 @@
 
 # Composer 의존성 디렉토리 (필요시)
 vendor/
-
+venv
 # 로그 파일
 *.log
 logs/
