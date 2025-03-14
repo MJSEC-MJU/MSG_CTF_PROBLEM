@@ -101,10 +101,8 @@ def flag():
     if "admin_2" in users:
         users["admin_2"] = pw  
         return "admin_2 비밀번호 변경 성공!", 200
-        #return """<script>alert("성공!"); history.go(-1);</script>""", 200
-
+    
     return "404.", 404
-    #return """<script>alert("User not found!"); history.go(-1);</script>""", 404
 
 
 @app.route("/vuln", methods=["GET"])
@@ -124,10 +122,8 @@ def vuln():
     for tag in xss_filter:
         param = param.replace(tag, "") 
 
-    #print(f"최종 변환된 입력값: {param}")  디버깅용
-
     return param, 200, {'Content-Type': 'text/html'}  
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=False)
