@@ -1,5 +1,4 @@
-## excuse me, can I get a burger
----
+# excuse me, can I get a burger
 ### ⚠️ 취약점 (Vulnerabilities)
 **error based sql injection**
 ### 📌 기술 스택 (Tech Stack)
