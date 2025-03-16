@@ -18,13 +18,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
-# SECRET_KEY를 환경변수에서 읽어오고, 없으면 기본값 사용 (개발용)
 SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     "django-insecure-default-secret-key-for-development"
 )
 
-# DEBUG 설정을 환경변수에서 읽어오며, 기본은 True
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 # ALLOWED_HOSTS를 환경변수에서 읽어오며, 콤마로 구분된 문자열을 리스트로 변환

@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "7000:7000"
+    networks:
+      - internal
+
+networks:
+  internal:

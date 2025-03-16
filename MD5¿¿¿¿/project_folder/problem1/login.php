@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
  <label for="username">ID:</label>
  <input type="text" name="username" required>
  <label for="password">password:</label>
- <input type="password" name="password" required>
+ <input type="password" name="password" required pattern="[A-Za-z]+">
  <input type="submit" value="login">
 </form>
 
