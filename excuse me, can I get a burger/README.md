@@ -9,7 +9,6 @@
 | **언어**        | Python |
 | **데이터베이스** | MySQL |
 | **ORM/연결 라이브러리** | pymysql |
-| **템플릿 엔진** | Jinja2 |
 | **보안**        | SQL Injection 필터링, Session 관리 |
 ## 📝 문제 설명
 *"여봐라.. 버거를.."*  
