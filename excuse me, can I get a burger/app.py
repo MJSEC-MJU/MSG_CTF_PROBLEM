@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, session
 import pymysql
 import os
+import re
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -13,6 +14,15 @@ DB_NAME = os.environ["DB_NAME"]
 TABLE_NAME = os.environ.get("TABLE_NAME")
 USER_COLUMN = os.environ.get("USER_COLUMN")
 PASSWORD_COLUMN = os.environ.get("PASSWORD_COLUMN")
+
+filter_words = ["or"]
+
+
+def sanitize_input(user_input):
+    sanitized = user_input.lower()
+    for word in filter_words:
+        sanitized = re.sub(r"\b" + re.escape(word) + r"\b", "", sanitized)
+    return sanitized
 
 
 def get_db_connection():
@@ -46,8 +56,8 @@ def index():
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        id = request.form.get("id")
-        password = request.form.get("password")
+        id = sanitize_input(request.form.get("id"))
+        password = sanitize_input(request.form.get("password"))
         if id and password:
             try:
                 conn = get_db_connection()
