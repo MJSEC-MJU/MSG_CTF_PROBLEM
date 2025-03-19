@@ -4,6 +4,7 @@ I deliver your food sir
 **⚠️ 취약점 (Vulnerabilities)**
 
 flask jinja2 SSTI
+파일명이 플래그로..
 
 **📌 기술 스택 (Tech Stack)**
 
